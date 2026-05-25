@@ -1,0 +1,592 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NeoRun // Área Logada do Aluno</title>
+  <meta name="description" content="Acompanhe seus treinos, metas de volume semanal, feedbacks e progresso na NeoRun Assessoria Esportiva.">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <!-- Checkbox hack para menu hambúrguer no mobile -->
+  <input type="checkbox" id="menu-toggle" class="menu-toggle-checkbox">
+  <!-- WRAPPER DO DASHBOARD -->
+  <div class="dashboard-container">
+    <!-- SIDEBAR (MENU LATERAL ESQUERDO) -->
+    <aside class="sidebar">
+      <div class="sidebar-top">
+        <!-- Logo NeoRun com SVG Vetorial Premium do Corredor -->
+        <a href="#" class="logo-box" id="logo-neorun">
+          <div class="logo-icon-wrapper">
+            <svg class="logo-svg" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg">
+              <!-- Cabeça -->
+              <circle cx="53" cy="22" r="10.5" fill="var(--verde-secundario)" />
+              <!-- Tronco / Braços -->
+              <path d="M22 36C28 32 38 31 48 37C58 43 65 39 71 33C74 30 78 33 75 37C69 43 59 47 49 41C39 35 30 36 24 42C21 45 18 40 22 36Z" fill="var(--verde-secundario)" />
+              <!-- Pernas -->
+              <path d="M34 50C44 48 51 51 55 60C59 69 55 78 55 83C55 86 49 86 49 83C49 78 51 71 47 65C43 59 37 58 34 58V50Z" fill="var(--verde-secundario)" />
+            </svg>
+          </div>
+          <span class="logo-text">NEO<span class="logo-highlight">RUN</span></span>
+        </a>
+        <!-- Botão de Fechar Menu no Mobile -->
+        <label for="menu-toggle" class="menu-close-btn" aria-label="Fechar menu">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="18" y1="6" x2="6" y2="18"></line>
+            <line x1="6" y1="6" x2="18" y2="18"></line>
+          </svg>
+        </label>
+      </div>
+      <!-- Links de Navegação -->
+      <nav class="sidebar-menu" aria-label="Menu Principal">
+        <ul>
+          <li>
+            <a href="#" class="menu-link active">
+              <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"></path>
+                <polyline points="9 22 9 12 15 12 15 22"></polyline>
+              </svg>
+              <span>Início</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="menu-link">
+              <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+              </svg>
+              <span>Meus Treinos</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="menu-link">
+              <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <line x1="18" y1="20" x2="18" y2="10"></line>
+                <line x1="12" y1="20" x2="12" y2="4"></line>
+                <line x1="6" y1="20" x2="6" y2="14"></line>
+              </svg>
+              <span>Desempenho</span>
+            </a>
+          </li>
+          <li>
+            <a href="#" class="menu-link">
+              <svg class="menu-icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
+                <line x1="16" y1="2" x2="16" y2="6"></line>
+                <line x1="8" y1="2" x2="8" y2="6"></line>
+                <line x1="3" y1="10" x2="21" y2="10"></line>
+              </svg>
+              <span>Calendário</span>
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <!-- Call to Action Principal na Sidebar -->
+      <div class="sidebar-cta-box">
+        <button class="btn-add-workout" id="btn-adicionar-treino-sidebar">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+            <line x1="12" y1="5" x2="12" y2="19"></line>
+            <line x1="5" y1="12" x2="19" y2="12"></line>
+          </svg>
+          <span>+ ADICIONAR TREINO</span>
+        </button>
+      </div>
+      <!-- Banner de Upgrade Premium -->
+      <div class="premium-card">
+        <div class="premium-badge">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" class="star-icon">
+            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"></polygon>
+          </svg>
+          <span>Plano Premium</span>
+        </div>
+        <p class="premium-text">Aproveite todos os recursos avançados de assessoria.</p>
+        <button class="premium-btn">Ver plano</button>
+        <div class="premium-visual-runner"></div>
+      </div>
+      <!-- Perfil do Usuário com Foto e Sair no Rodapé -->
+      <div class="sidebar-footer">
+        <div class="user-profile">
+          <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="Foto do Aluno" class="user-avatar">
+          <div class="user-info">
+            <span class="user-name">João Silva</span>
+            <span class="user-status">Aluno Premium</span>
+          </div>
+        </div>
+        <a href="#" class="btn-logout" aria-label="Sair da plataforma">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"></path>
+            <polyline points="16 17 21 12 16 7"></polyline>
+            <line x1="21" y1="12" x2="9" y2="12"></line>
+          </svg>
+          <span>Sair</span>
+        </a>
+      </div>
+    </aside>
+    <!-- CONTEÚDO PRINCIPAL (MAIN CONTENT) -->
+    <main class="main-content">
+      
+      <!-- HEADER DO MAIN CONTENT -->
+      <header class="main-header">
+        <div class="header-left">
+          <!-- Botão Hambúrguer no Mobile -->
+          <label for="menu-toggle" class="menu-open-btn" aria-label="Abrir menu">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <line x1="3" y1="12" x2="21" y2="12"></line>
+              <line x1="3" y1="6" x2="21" y2="6"></line>
+              <line x1="3" y1="18" x2="21" y2="18"></line>
+            </svg>
+          </label>
+          <!-- Título de Boas-vindas -->
+          <div class="welcome-box">
+            <h1 class="welcome-title">Olá, João! 👋</h1>
+            <p class="welcome-subtitle">Vamos superar seus limites hoje.</p>
+          </div>
+        </div>
+        <div class="header-right">
+          <!-- Notificações -->
+          <button class="notification-btn" aria-label="Notificações">
+            <span class="notification-dot"></span>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"></path>
+              <path d="M13.73 21a2 2 0 0 1-3.46 0"></path>
+            </svg>
+          </button>
+          <!-- Perfil Rápido do Topo -->
+          <div class="user-dropdown-btn">
+            <img src="https://images.unsplash.com/photo-1534528741775-53994a69daeb?auto=format&fit=crop&w=150&q=80" alt="João Silva" class="dropdown-avatar">
+            <div class="dropdown-details">
+              <span class="dropdown-name">João Silva</span>
+              <span class="dropdown-level">Aluno Premium</span>
+            </div>
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="dropdown-arrow">
+              <polyline points="6 9 12 15 18 9"></polyline>
+            </svg>
+          </div>
+        </div>
+      </header>
+      <!-- PAINEL DE METAS RÁPIDAS (KPI CARDS ROW) -->
+      <section class="kpi-section" aria-label="Estatísticas Principais">
+        <div class="kpi-grid">
+          
+          <!-- KPI 1 -->
+          <div class="kpi-card">
+            <div class="kpi-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M18 8h1a4 4 0 0 1 0 8h-1"></path>
+                <path d="M2 8h16v9a4 4 0 0 1-4 4H6a4 4 0 0 1-4-4V8z"></path>
+                <line x1="6" y1="1" x2="6" y2="4"></line>
+                <line x1="10" y1="1" x2="10" y2="4"></line>
+                <line x1="14" y1="1" x2="14" y2="4"></line>
+              </svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Treinos concluídos</span>
+              <span class="kpi-value">28</span>
+              <span class="kpi-badge positive">+12% este mês</span>
+            </div>
+          </div>
+          <!-- KPI 2 -->
+          <div class="kpi-card">
+            <div class="kpi-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <circle cx="12" cy="12" r="10"></circle>
+                <polygon points="12 6 12 12 16 14"></polygon>
+              </svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Distância percorrida</span>
+              <span class="kpi-value">124 <span class="kpi-unit">km</span></span>
+              <span class="kpi-badge positive">+18% este mês</span>
+            </div>
+          </div>
+          <!-- KPI 3 -->
+          <div class="kpi-card">
+            <div class="kpi-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"></path>
+              </svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Calorias queimadas</span>
+              <span class="kpi-value">3.250 <span class="kpi-unit">kcal</span></span>
+              <span class="kpi-badge positive">+9% este mês</span>
+            </div>
+          </div>
+          <!-- KPI 4 -->
+          <div class="kpi-card">
+            <div class="kpi-icon-wrapper">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="23 6 13.5 15.5 8.5 10.5 1 18"></polyline>
+                <polyline points="17 6 23 6 23 12"></polyline>
+              </svg>
+            </div>
+            <div class="kpi-details">
+              <span class="kpi-label">Evolução mensal</span>
+              <span class="kpi-value">+18%</span>
+              <span class="kpi-badge highlight">Excelente!</span>
+            </div>
+          </div>
+        </div>
+      </section>
+      <!-- GRID DE CARDS PRINCIPAIS -->
+      <section class="dashboard-grid" aria-label="Painel de Controle">
+        
+        <!-- COLUNA ESQUERDA (PRÓXIMOS TREINOS E PROGRESSO MENSAL) -->
+        <div class="grid-column">
+          
+          <!-- CARD 2 - PRÓXIMOS TREINOS -->
+          <article class="card card-proximos-treinos">
+            <div class="card-header">
+              <h2 class="card-title">Próximos Treinos</h2>
+              <a href="#" class="card-action-link">Ver todos</a>
+            </div>
+            <div class="card-content">
+              <div class="next-workouts-list">
+                
+                <!-- Treino 1 -->
+                <div class="workout-row-card">
+                  <div class="workout-row-left">
+                    <div class="workout-row-icon sport-run">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M18 22h4"></path>
+                        <path d="M2 14h6l2 4 4-8 2 4h6"></path>
+                      </svg>
+                    </div>
+                    <div class="workout-row-info">
+                      <h3 class="workout-row-title">Corrida leve</h3>
+                      <span class="workout-row-meta">5 km • 40 min</span>
+                      <span class="workout-row-time">Hoje • 18:00</span>
+                    </div>
+                  </div>
+                  <div class="workout-row-right">
+                    <span class="workout-badge in-progress">Em andamento</span>
+                  </div>
+                </div>
+                <!-- Treino 2 -->
+                <div class="workout-row-card">
+                  <div class="workout-row-left">
+                    <div class="workout-row-icon sport-swim">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M2 6c.6 0 1.2-.2 1.6-.6L5 4.3c.9-.9 2.4-.9 3.3 0l1.4 1.4c.4.4 1 .6 1.6.6.6 0 1.2-.2 1.6-.6l1.4-1.4c.9-.9 2.4-.9 3.3 0l1.4 1.4c.4.4 1 .6 1.6.6"></path>
+                        <path d="M2 12c.6 0 1.2-.2 1.6-.6l1.4-1.4c.9-.9 2.4-.9 3.3 0l1.4 1.4c.4.4 1 .6 1.6.6.6 0 1.2-.2 1.6-.6l1.4-1.4c.9-.9 2.4-.9 3.3 0l1.4 1.4c.4.4 1 .6 1.6.6"></path>
+                        <path d="M2 18c.6 0 1.2-.2 1.6-.6l1.4-1.4c.9-.9 2.4-.9 3.3 0l1.4 1.4c.4.4 1 .6 1.6.6.6 0 1.2-.2 1.6-.6l1.4-1.4c.9-.9 2.4-.9 3.3 0l1.4 1.4c.4.4 1 .6 1.6.6"></path>
+                      </svg>
+                    </div>
+                    <div class="workout-row-info">
+                      <h3 class="workout-row-title">Natação técnica</h3>
+                      <span class="workout-row-meta">45 min • 1.800m</span>
+                      <span class="workout-row-time">Amanhã • 07:00</span>
+                    </div>
+                  </div>
+                  <div class="workout-row-right">
+                    <span class="workout-badge scheduled">Agendado</span>
+                  </div>
+                </div>
+                <!-- Treino 3 -->
+                <div class="workout-row-card">
+                  <div class="workout-row-left">
+                    <div class="workout-row-icon sport-cycle">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="5.5" cy="17.5" r="3.5"></circle>
+                        <circle cx="18.5" cy="17.5" r="3.5"></circle>
+                        <path d="M15 17.5L12 9H6.5"></path>
+                        <path d="M12 9l-4 8.5"></path>
+                        <path d="M17 12h-4"></path>
+                      </svg>
+                    </div>
+                    <div class="workout-row-info">
+                      <h3 class="workout-row-title">Ciclismo resistência</h3>
+                      <span class="workout-row-meta">20 km • 1h 10min</span>
+                      <span class="workout-row-time">Sexta • 06:30</span>
+                    </div>
+                  </div>
+                  <div class="workout-row-right">
+                    <span class="workout-badge scheduled">Agendado</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- CARD EXTRA - PROGRESSO MENSAL -->
+          <article class="card card-progresso-mensal">
+            <div class="card-header">
+              <h2 class="card-title">Progresso mensal</h2>
+            </div>
+            
+            <div class="card-content">
+              <div class="progress-container">
+                <!-- Gráfico de Pizza Circular com CSS Puro -->
+                <div class="circular-progress-box">
+                  <div class="circular-progress-glow"></div>
+                  <div class="circular-progress" style="--percent: 78;">
+                    <div class="circular-progress-inner">
+                      <span class="progress-value">78%</span>
+                      <span class="progress-sub">da meta</span>
+                    </div>
+                  </div>
+                </div>
+                <div class="progress-info-panel">
+                  <div class="meta-status">
+                    <span class="meta-label">Meta mensal</span>
+                    <span class="meta-value">320 km</span>
+                  </div>
+                  
+                  <!-- Barra horizontal detalhada -->
+                  <div class="horizontal-progress-row">
+                    <div class="horizontal-progress-bar">
+                      <div class="horizontal-progress-fill" style="width: 78%;"></div>
+                    </div>
+                    <span class="meta-desc">250 km concluídos • Faltam 70 km</span>
+                  </div>
+                  <!-- Detalhamento por Modalidades -->
+                  <div class="modality-list">
+                    <div class="modality-item">
+                      <span class="modality-name"><span class="bullet run"></span>Corrida</span>
+                      <span class="modality-value">120 km</span>
+                    </div>
+                    <div class="modality-item">
+                      <span class="modality-name"><span class="bullet swim"></span>Natação</span>
+                      <span class="modality-value">80 km</span>
+                    </div>
+                    <div class="modality-item">
+                      <span class="modality-name"><span class="bullet cycle"></span>Ciclismo</span>
+                      <span class="modality-value">50 km</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+        </div>
+        <!-- COLUNA DIREITA (VOLUME SEMANAL, FEEDBACK DO ÚLTIMO TREINO E CHAT) -->
+        <div class="grid-column">
+          
+          <!-- CARD 3 - VOLUME SEMANAL / EVOLUÇÃO -->
+          <article class="card card-volume-semanal">
+            <div class="card-header">
+              <h2 class="card-title">Volume Semanal / Evolução</h2>
+              <div class="chart-actions">
+                <span class="active-tab">Este mês</span>
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="chart-arrow">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+            </div>
+            <div class="card-content">
+              <!-- Representação de Gráfico em Colunas via Flexbox -->
+              <div class="column-chart-wrapper">
+                <!-- Escala vertical (eixo Y) -->
+                <div class="chart-y-axis">
+                  <span>100</span>
+                  <span>75</span>
+                  <span>50</span>
+                  <span>25</span>
+                  <span>0</span>
+                </div>
+                <!-- Painel de Barras -->
+                <div class="column-chart-container">
+                  <!-- Linhas de grade de fundo -->
+                  <div class="chart-grid-lines">
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                    <div class="grid-line"></div>
+                  </div>
+                  <!-- Barras do Gráfico -->
+                  <div class="chart-bars">
+                    
+                    <!-- Segunda -->
+                    <div class="chart-bar-col">
+                      <div class="chart-bar-track">
+                        <div class="chart-bar-fill" style="height: 40%;">
+                          <span class="chart-tooltip">6 km</span>
+                        </div>
+                      </div>
+                      <span class="chart-bar-day">01 Mai</span>
+                    </div>
+                    <!-- Terça -->
+                    <div class="chart-bar-col">
+                      <div class="chart-bar-track">
+                        <div class="chart-bar-fill" style="height: 60%;">
+                          <span class="chart-tooltip">9 km</span>
+                        </div>
+                      </div>
+                      <span class="chart-bar-day">08 Mai</span>
+                    </div>
+                    <!-- Quarta -->
+                    <div class="chart-bar-col">
+                      <div class="chart-bar-track">
+                        <div class="chart-bar-fill" style="height: 70%;">
+                          <span class="chart-tooltip">11 km</span>
+                        </div>
+                      </div>
+                      <span class="chart-bar-day">15 Mai</span>
+                    </div>
+                    <!-- Quinta (Hoje - Ativo) -->
+                    <div class="chart-bar-col active">
+                      <div class="chart-bar-track">
+                        <div class="chart-bar-fill" style="height: 78%;">
+                          <span class="chart-tooltip">12.5 km</span>
+                        </div>
+                      </div>
+                      <span class="chart-bar-day active">22 Mai</span>
+                    </div>
+                    <!-- Sexta (Planejado / Aguardando) -->
+                    <div class="chart-bar-col">
+                      <div class="chart-bar-track">
+                        <div class="chart-bar-fill" style="height: 85%;">
+                          <span class="chart-tooltip">14 km</span>
+                        </div>
+                      </div>
+                      <span class="chart-bar-day">29 Mai</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- CARD 1 - FEEDBACK DO ÚLTIMO TREINO -->
+          <article class="card card-ultimo-treino">
+            <div class="card-header">
+              <h2 class="card-title">Último Treino: Corrida 10km</h2>
+              <span class="badge-status-concluido">Concluído</span>
+            </div>
+            <div class="card-content">
+              <!-- Comentário Motivacional do Treinador -->
+              <div class="feedback-bubble">
+                <div class="coach-profile-inline">
+                  <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Treinador Lucas" class="coach-avatar-circle">
+                  <div class="coach-details-inline">
+                    <span class="coach-name-inline">Prof. Lucas (Treinador Head)</span>
+                    <span class="feedback-date">20 Mai • 18:30</span>
+                  </div>
+                </div>
+                
+                <p class="coach-feedback-text">
+                  "Excelente evolução na consistência do pace! Continue assim."
+                </p>
+              </div>
+              <!-- Indicadores Visuais de Sucesso -->
+              <div class="success-indicators">
+                <div class="indicator-item">
+                  <div class="indicator-icon green-glow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <span class="indicator-text">Consistência de pace mantida</span>
+                </div>
+                <div class="indicator-item">
+                  <div class="indicator-icon green-glow">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+                      <polyline points="20 6 9 17 4 12"></polyline>
+                    </svg>
+                  </div>
+                  <span class="indicator-text">Frequência cardíaca controlada</span>
+                </div>
+              </div>
+            </div>
+          </article>
+          <!-- CARDS EXTRAS (FEEDBACKS RECENTES & CHAT) - IDÊNTICO À FOTO -->
+          <div class="sub-grid-right">
+            
+            <!-- Feedbacks Recentes -->
+            <article class="card card-feedbacks-recentes">
+              <div class="card-header">
+                <h2 class="card-title">Feedbacks recentes</h2>
+                <a href="#" class="card-action-link">Ver todas</a>
+              </div>
+              <div class="card-content">
+                <ul class="sub-feedbacks-list">
+                  
+                  <li>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Lucas" class="small-avatar">
+                    <div class="sub-feedback-info">
+                      <p class="sub-feedback-comment">Excelente evolução na consistência dos treinos!</p>
+                      <span class="sub-feedback-meta">Prof. Lucas • 20 Mai</span>
+                    </div>
+                    <span class="green-indicator-dot"></span>
+                  </li>
+                  <li>
+                    <div class="sub-icon-avatar">
+                      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="var(--verde-secundario)" stroke-width="2">
+                        <polyline points="22 12 18 12 15 21 9 3 6 12 2 12"></polyline>
+                      </svg>
+                    </div>
+                    <div class="sub-feedback-info">
+                      <p class="sub-feedback-comment">Sua performance na natação melhorou 15% este mês.</p>
+                      <span class="sub-feedback-meta">Sistema • 19 Mai</span>
+                    </div>
+                    <span class="green-indicator-dot"></span>
+                  </li>
+                  <li>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Lucas" class="small-avatar">
+                    <div class="sub-feedback-info">
+                      <p class="sub-feedback-comment">Ajuste na intensidade da corrida para os próximos treinos.</p>
+                      <span class="sub-feedback-meta">Prof. Lucas • 18 Mai</span>
+                    </div>
+                    <span class="green-indicator-dot"></span>
+                  </li>
+                </ul>
+              </div>
+            </article>
+            <!-- Mensagens Recentes / Chat -->
+            <article class="card card-mensagens-recentes">
+              <div class="card-header">
+                <h2 class="card-title">Mensagens recentes</h2>
+                <a href="#" class="card-action-link">Ver todas</a>
+              </div>
+              <div class="card-content">
+                <ul class="sub-messages-list">
+                  
+                  <li>
+                    <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?auto=format&fit=crop&w=80&q=80" alt="Lucas" class="small-avatar">
+                    <div class="sub-message-info">
+                      <span class="sub-message-sender">Prof. Lucas</span>
+                      <p class="sub-message-snippet">Oi João! Como foi o treino de hoje?</p>
+                    </div>
+                    <div class="sub-message-meta">
+                      <span class="sub-message-time">18:30</span>
+                      <span class="green-badge-unread">2</span>
+                    </div>
+                  </li>
+                  <li>
+                    <div class="sub-icon-avatar team-logo-bg">
+                      <span class="logo-letters-avatar">NR</span>
+                    </div>
+                    <div class="sub-message-info">
+                      <span class="sub-message-sender">Equipe Neorun</span>
+                      <p class="sub-message-snippet">Seu plano foi atualizado com novos treinos!</p>
+                    </div>
+                    <div class="sub-message-meta">
+                      <span class="sub-message-time">Ontem</span>
+                      <span class="green-indicator-dot"></span>
+                    </div>
+                  </li>
+                  <li>
+                    <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?auto=format&fit=crop&w=80&q=80" alt="Ana Paula" class="small-avatar">
+                    <div class="sub-message-info">
+                      <span class="sub-message-sender">Prof. Ana Paula</span>
+                      <p class="sub-message-snippet">Parabéns pela dedicação!</p>
+                    </div>
+                    <div class="sub-message-meta">
+                      <span class="sub-message-time">2 dias</span>
+                      <span class="green-indicator-dot"></span>
+                    </div>
+                  </li>
+                </ul>
+                <button class="btn-open-messages">
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                    <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"></path>
+                  </svg>
+                  <span>Abrir mensagens</span>
+                </button>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+    </main>
+  </div>
+</body>
+</html>
